@@ -1,5 +1,5 @@
 [package]
-name = "boots"
+name = "boot"
 description = "boots, a rewrite of beets"
 version = "0.1.0"
 edition = "2021"
@@ -11,3 +11,4 @@ license-file = "LICENSE.txt"
 
 [dependencies]
 clap = { version = "4.5.19", features = ["derive"] }
+serde = "1.0.210"

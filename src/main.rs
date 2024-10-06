@@ -1,22 +1,32 @@
 use clap::Parser;
+use std::{fs, io, path};
 
-/// Simple program to greet a person
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// Name of the person to greet
-    #[arg(short, long)]
-    name: String,
-
-    /// Number of times to greet
-    #[arg(short, long, default_value_t = 1)]
-    count: u16,
+    // Name of the file to copy
+    // #[arg(short, long)]
+    file: String,
 }
 
 fn main() {
-    let args = Args::parse();
+    let home_dir = std::env::var("HOME").expect("Home directory not found!");
+    let mut path = path::PathBuf::from(home_dir);
+    path.push("test");
 
-    for _ in 0..args.count {
-        println!("Hello {}!", args.name);
+    let cli = Args::parse();
+    let path_to_file = path::Path::new(&cli.file);
+
+    if !path_to_file.exists() {
+        println!("Lol!");
     }
+
+    println!("{}", path_to_file.display());
+}
+
+fn get_config_dir() -> path::PathBuf {
+    let home_dir = std::env::var("HOME").expect("Home directory not found!");
+    let mut path = path::PathBuf::from(home_dir);
+    path.push(".config");
+    return path;
 }
