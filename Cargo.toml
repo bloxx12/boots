@@ -1,0 +1,13 @@
+[package]
+name = "boots"
+description = "boots, a rewrite of beets"
+version = "0.1.0"
+edition = "2021"
+authors = ["Charlie Root <charlie@charlieroot.dev>"]
+rust-version = "1.80"
+readme = "README.md"
+repository = "https://github.com/bloxx12/boots"
+license-file = "LICENSE.txt"
+
+[dependencies]
+clap = { version = "4.5.19", features = ["derive"] }
